@@ -1,0 +1,3 @@
+EXPORTS
+    _ZN3Cfl14CCreateProcessEPc @1
+    _ZN3Cfl18CCreateProcessIdleEPc @2
