@@ -1,0 +1,52 @@
+# Project: csh
+# Makefile created by Red Panda C++ 3.2.2958
+
+CXX      = "g++.exe"
+CC       = "gcc.exe"
+WINDRES  = "windres.exe"
+RM       = del /q /f
+CD       = cd /d
+LIBS     = "-s" "F:/Cfl/code/code/tools/libProcessManager.a" "-static"
+INCS     = "-IF:/Cfl/code/code/tools"
+CXXINCS  = "-IF:/Cfl/code/code/tools"
+CXXFLAGS = $(CXXINCS) "-O2" "-pipe"
+CFLAGS   = $(INCS) "-O2" "-pipe"
+WINDRESFLAGS = 
+RES      = csh_private.res
+OBJ      = shellworker.o prostring.o ShellBasicServices.o main.o ../../tools\head.o ../../tools\ApplicationOperations.o $(RES)
+BIN      = ../../tools/csh.exe
+LINKOBJ  = "shellworker.o" "prostring.o" "ShellBasicServices.o" "main.o" "../../tools\head.o" "../../tools\ApplicationOperations.o" "csh_private.res"
+CLEANOBJ = "shellworker.o" "prostring.o" "ShellBasicServices.o" "main.o" "..\..\tools\head.o" "..\..\tools\ApplicationOperations.o" "csh_private.res" "..\..\tools\csh.exe"
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) >NUL 2>&1
+
+../../tools/csh.exe: $(OBJ)
+
+	$(CXX) $(LINKOBJ) -o "../../tools/csh.exe" $(LIBS)
+
+shellworker.o: shellworker.cpp ../../tools/head.h config.h ../../tools/ProcessCreater.h ../../tools/ApplicationOperations.h ShellBasicServices.h ../../tools/prostring.h shellworker.h
+	$(CXX) -c "shellworker.cpp" -o "shellworker.o" $(CXXFLAGS) 
+
+prostring.o: prostring.cpp ../../tools/head.h config.h ../../tools/ProcessCreater.h ../../tools/ApplicationOperations.h ShellBasicServices.h ../../tools/prostring.h shellworker.h
+	$(CXX) -c "prostring.cpp" -o "prostring.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+ShellBasicServices.o: ShellBasicServices.cpp ../../tools/head.h config.h ../../tools/ProcessCreater.h ../../tools/ApplicationOperations.h ShellBasicServices.h ../../tools/prostring.h shellworker.h
+	$(CXX) -c "ShellBasicServices.cpp" -o "ShellBasicServices.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+main.o: main.cpp ../../tools/head.h config.h ../../tools/ProcessCreater.h ../../tools/ApplicationOperations.h ShellBasicServices.h ../../tools/prostring.h shellworker.h
+	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS) 
+
+../../tools\head.o: ../../tools/head.cpp ../../tools/head.h config.h ../../tools/ProcessCreater.h ../../tools/ApplicationOperations.h ShellBasicServices.h ../../tools/prostring.h shellworker.h
+	$(CXX) -c "../../tools/head.cpp" -o "../../tools\head.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+../../tools\ApplicationOperations.o: ../../tools/ApplicationOperations.cpp ../../tools/head.h config.h ../../tools/ProcessCreater.h ../../tools/ApplicationOperations.h ShellBasicServices.h ../../tools/prostring.h shellworker.h
+	$(CXX) -c "../../tools/ApplicationOperations.cpp" -o "../../tools\ApplicationOperations.o" $(CXXFLAGS) 
+
+csh_private.res: csh_private.rc 
+	$(WINDRES) -i "csh_private.rc" --input-format=rc -o "csh_private.res" -O coff $(WINDRESFLAGS) 
+
