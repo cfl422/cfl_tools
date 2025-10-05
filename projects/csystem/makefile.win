@@ -1,0 +1,39 @@
+# Project: csystem
+# Makefile created by Red Panda C++ 3.2.2958
+
+CXX      = "g++.exe"
+CC       = "gcc.exe"
+WINDRES  = "windres.exe"
+RM       = del /q /f
+CD       = cd /d
+LIBS     = "-LF:/Cfl/code/code/tools" "-Wl,--stack,12582912" "-s" "F:/Cfl/code/code/tools/libProcessManager.a" "-static"
+INCS     = "-IF:/Cfl/code/code/tools" "-IF:/Cfl/code/code/tools"
+CXXINCS  = "-IF:/Cfl/code/code/tools" "-IF:/Cfl/code/code/tools" "-IF:/Cfl/code/code/tools"
+CXXFLAGS = $(CXXINCS) "-O2" "-pipe" "-std=c++14" "-lcsystem" "-DBUILDING_DLL=1"
+CFLAGS   = $(INCS) "-O2" "-pipe" "-std=c++14" "-lcsystem" "-DBUILDING_DLL=1"
+WINDRESFLAGS = 
+RES      = csystem_private.res
+OBJ      = dllmain.o $(RES)
+BIN      = ../../tools/libcsystem.dll
+LINKOBJ  = "dllmain.o" "csystem_private.res"
+CLEANOBJ = "dllmain.o" "csystem_private.res" "..\..\tools\libcsystem.dll"
+DEF      = 
+STATIC   = ..\..\tools\libcsystem.a
+OUTPUT_DEF = ..\..\tools\libcsystem.def
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) $(STATIC) >NUL 2>&1
+
+../../tools/libcsystem.dll: $(DEF) $(OBJ)
+	$(CXX) -mdll $(LINKOBJ) -o "../../tools/libcsystem.dll" $(LIBS) $(DEF) -Wl,--output-def,$(OUTPUT_DEF),--out-implib,$(STATIC)
+
+dllmain.o: dllmain.cpp dll.h
+	$(CXX) -c "dllmain.cpp" -o "dllmain.o" $(CXXFLAGS) 
+
+csystem_private.res: csystem_private.rc 
+	$(WINDRES) -i "csystem_private.rc" --input-format=rc -o "csystem_private.res" -O coff $(WINDRESFLAGS) 
+

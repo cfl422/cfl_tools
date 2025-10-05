@@ -1,0 +1,39 @@
+# Project: ProcessManager
+# Makefile created by Red Panda C++ 3.2.2958
+
+CXX      = "g++.exe"
+CC       = "gcc.exe"
+WINDRES  = "windres.exe"
+RM       = del /q /f
+CD       = cd /d
+LIBS     = "-LD:/Cfl/code/code/tools" "-LD:/Cfl/code/code/tools/include" "-LD:/Cfl/code/code/tools/source" "-LE:/Cfl/code/code/tools/include" "-LE:/Cfl/code/code/tools" "-LE:/Cfl/code/code/tools/include" "-s" "-static"
+INCS     = "-IE:/Cfl/code/code/projects" "-IE:/Cfl/code/code/tools" "-IE:/Cfl/code/code/tools/include"
+CXXINCS  = "-IF:/Cfl/code/code/tools" "-IF:/Cfl/code/code/tools/include" "-IF:/Cfl/code/code/tools/source" "-ID:/Cfl/code/code/tools/include" "-ID:/Cfl/code/code/tools/source" "-IE:/Cfl/code/code/tools/include" "-IE:/Cfl/code/code/projects" "-IE:/Cfl/code/code/tools" "-IE:/Cfl/code/code/tools/include"
+CXXFLAGS = $(CXXINCS) "-O2" "-pipe" "-std=c++14" "-O2" "-Wl,--stack=99999999" "-DBUILDING_DLL=1" "-std=c++14"
+CFLAGS   = $(INCS) "-O2" "-pipe" "-std=c++14" "-O2" "-Wl,--stack=99999999" "-DBUILDING_DLL=1"
+WINDRESFLAGS = 
+RES      = ProcessManager_private.res
+OBJ      = dllmain.o $(RES)
+BIN      = ../../tools/libProcessManager.dll
+LINKOBJ  = "dllmain.o" "ProcessManager_private.res"
+CLEANOBJ = "dllmain.o" "ProcessManager_private.res" "..\..\tools\libProcessManager.dll"
+DEF      = 
+STATIC   = ..\..\tools\libProcessManager.a
+OUTPUT_DEF = ..\..\tools\libProcessManager.def
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) $(STATIC) >NUL 2>&1
+
+../../tools/libProcessManager.dll: $(DEF) $(OBJ)
+	$(CXX) -mdll $(LINKOBJ) -o "../../tools/libProcessManager.dll" $(LIBS) $(DEF) -Wl,--output-def,$(OUTPUT_DEF),--out-implib,$(STATIC)
+
+dllmain.o: dllmain.cpp ../../tools/include/ProcessCreater.h
+	$(CXX) -c "dllmain.cpp" -o "dllmain.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+ProcessManager_private.res: ProcessManager_private.rc 
+	$(WINDRES) -i "ProcessManager_private.rc" --input-format=rc -o "ProcessManager_private.res" -O coff $(WINDRESFLAGS) 
+
