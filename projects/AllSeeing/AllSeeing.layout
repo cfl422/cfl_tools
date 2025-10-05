@@ -1,0 +1,66 @@
+[
+    {
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "E:/Cfl/code/code/tools/source/prostring.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 15,
+        "caretY": 3,
+        "filename": "E:/Cfl/code/code/tools/include/getip.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 17,
+        "caretY": 4,
+        "filename": "E:/Cfl/code/code/tools/include/whr.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 1,
+        "caretY": 16,
+        "filename": "E:/Cfl/code/code/tools/source/head.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 16,
+        "caretY": 3,
+        "filename": "E:/Cfl/code/code/tools/include/allseeing.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 23,
+        "caretY": 4,
+        "filename": "E:/Cfl/code/code/tools/include/dll_header.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 21,
+        "caretY": 14,
+        "filename": "E:/Cfl/code/code/testing/AllSeeing/dllmain.cpp",
+        "focused": true,
+        "isOpen": true,
+        "left": 0,
+        "order": 0,
+        "top": 0
+    }
+]

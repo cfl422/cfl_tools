@@ -1,0 +1,40 @@
+[
+    {
+        "caretX": 22,
+        "caretY": 23,
+        "filename": "E:/Cfl/code/code/tools/include/whr.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 200
+    },
+    {
+        "caretX": 15,
+        "caretY": 2,
+        "filename": "E:/Cfl/code/code/testing/cpt/dllmain.cpp",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 1,
+        "top": 500
+    },
+    {
+        "caretX": 10,
+        "caretY": 38,
+        "filename": "E:/Cfl/code/code/tools/include/cpt.h",
+        "focused": true,
+        "isOpen": true,
+        "left": 0,
+        "order": 0,
+        "top": 400
+    },
+    {
+        "caretX": 8,
+        "caretY": 7,
+        "filename": "E:/Cfl/code/code/tools/include/dll_header.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    }
+]
