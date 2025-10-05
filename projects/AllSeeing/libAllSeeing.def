@@ -1,7 +1,0 @@
-EXPORTS
-    _Z12chartostringB5cxx11Pc @1
-    _Z5Colori @2
-    _Z6gotoxyii @3
-    _ZN3Cfl10getAppTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE @4
-    _ZN3str5checkEPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE @5
-    _ZN3str9to_stringB5cxx11EPc @6
